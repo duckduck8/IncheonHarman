@@ -6,6 +6,7 @@ void test02(int a);
 
 main()
 {
+	//test01()
 	test02(1);
 }
 
