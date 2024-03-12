@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int test01();
-void test02();
+void test02(int a);
 
 
 main()
