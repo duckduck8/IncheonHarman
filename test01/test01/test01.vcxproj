@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="array.c" />
     <ClCompile Include="function.c" />
+    <ClCompile Include="pointer.c" />
     <ClCompile Include="printf.c" />
     <ClCompile Include="condition.c" />
   </ItemGroup>

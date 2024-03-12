@@ -4,7 +4,7 @@ int test01();
 void test02(int a);
 
 
-main()
+main4()
 { 
 	//test01()
 	test02(1);
@@ -48,7 +48,7 @@ void test02(int a)  //문자열과 문자배열
 
 	for (int i = 0; i < 10; i++)
 	{
-		printf("ca[%d]: %c (%02x)\n", i, ca[i], ca[i]); //02x: 16진수 %x로 표현하는데 %02x는 2자리로 빈자리는 0으로 채우라는 뜻
+		printf("ca[%d]: %c (%02x)\n", i, ca[i], ca[i]); 
 	}
 }
 
