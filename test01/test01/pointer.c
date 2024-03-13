@@ -1,9 +1,10 @@
 #include <stdio.h>
 
-int test03();
-void test04(int a);
+void test01();
+void test02();
+void test03();
+void test04();
 void test05();
-void test06();
 void Dump(char* p, int len);
 void Copy(char* p1, char* p2);
 
@@ -11,16 +12,33 @@ void Copy(char* p1, char* p2);
 
 main()
 {
-	//test03()
-	//test04(1);
-	//test05();
-	test06();
+	int n;
+	void* pF[] = {test01, test02, test03, test04, test05};  //타입이 정해지지 않은 포인터, test1,2,3,4 함수의 주소들이 배열에 담긴것
+	void (*pFunc)();  //함수 포인터
+	while (1)
+	{
+		printf("\n\n\n\n");
+		printf("1. 숫자키에 대한 문자열 출력미션\n");
+		printf("2. 문자열과 문자배열\n");
+		printf("3. 포인터의 위치 지정\n");
+		printf("4. 포인터를 이용한 문자열 입출력함수\n");
+		printf("5. 구조체 테스트\n");
+		printf("=====================================\n  선택 ");
+		scanf("%d", &n);
+		if (n == 0) return;
+		pFunc = pF[n - 1];
+		pFunc();    //pF에 있는 함수주소를 pFunc에 넣어서 그 주소에 해당하는 함수 실행시켜 주는 것
+	}
+	//test01()
+	//test02();
+	//test03();
+	//test04();
 }
 
 
 
 
-int test03()
+void test01()  //숫자키에 대한 문자열 출력
 {
 	// 아스키코드에서 0은 30임 ->0x30 이렇게 쓰면 16진수 0을 사용한다는 뜻인데 
 	// num-0x30 하면 이게 뭔데?  문자를 숫자로 바꾸는건가
@@ -36,13 +54,13 @@ int test03()
 		printf(">");
 		char c = getch();
 		int m = c - 0x30; //아스키값 -> num
-
+		if ((c | 0x20) == 'q') break;
 		printf("%c: %s\n", c, str[m]);
 
 	}
 }
 
-void test04(int a)  //문자열과 문자배열
+void test02()  //문자열과 문자배열
 {
 	char ca[] = "Hello"; // ca[0]: 'H' ... ca[5]:\0
 	for (int i = 0; i < 10; i++)
@@ -54,7 +72,7 @@ void test04(int a)  //문자열과 문자배열
 
 	for (int i = 0; i < 6; i++)
 	{
-		printf("ia[%d]: %d (%08x) [%08x]\n", i, ia[i], ia[i], ia+i);
+		printf("ia[%d]: %d (%08x) [%08x]\n", i, ia[i], ia[i], ia+i); //ia+i -> 주소 나타내는듯
 	}
 
 	int ia2[3][2] = { 10,20,30,40,50,60 };
@@ -65,7 +83,7 @@ void test04(int a)  //문자열과 문자배열
 	}
 }
 
-void test05()
+void test03()   //포인터의 위치 지정
 {
 	char buf[100]; //안전 메모리 공간 확보
 	char* pBuf;    //안전 메모리 공간중의 출력 위치
@@ -83,7 +101,7 @@ void test05()
 	
 }
 
-void test06()   //포인터를 이용한 문자열 입출력함수
+void test04()   //포인터를 이용한 문자열 입출력함수
 {
 	char* arr[10] = { "aaaaa", "bbbb", "ccc", "dd", "eeeeee" };
 	char buf[100];
@@ -106,6 +124,26 @@ void test06()   //포인터를 이용한 문자열 입출력함수
 	{
 		printf("arr[%d] : 0x%08x %s\n", i, arr[i], arr[i]);
 	}
+}
+
+void test05()  //구조체 테스트
+{
+	struct stTest
+	{
+		int i;  //4바이트
+		float a; //4바이트
+		char name[20]; //포인터 없이 [20] 해놓으면 20바이트 사용함
+		//char* name;  //8바이트(주소는 무조건 8바이트)  포인터 사용해야 메모리 공간 확보에 좋은가보다
+	} s1 = { 1, 3.14, "삼천갑자 동방삭" };
+	//s1 = { 1, 3.14 };
+	//s1.name = "삼천갑자 동방삭";  
+	struct stTest s2=s1;
+
+	printf("sizeof(struct stTest): %d\n", sizeof(struct stTest));  //struct stTest의 바이트 수 출력
+
+	printf("struct stTest s1: %d  %f  %s\n", s1.i, s1.a, s1.name);
+	printf("struct stTest s2: %d  %f  %s\n", s2.i, s2.a, s2.name);
+
 }
 
 //메모리 공간 출력 8바이트씩 한줄에 16바이트
