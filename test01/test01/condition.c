@@ -28,7 +28,7 @@ int main2()
 
 		switch (d) {
 
-		case '1':
+		case '1':	
 			printf(">%c: one\n", d);
 			break;
 		case '2':

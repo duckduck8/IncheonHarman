@@ -1,18 +1,18 @@
 #include <stdio.h>
 
-int test06();
-void test07(int a);
+int test1();
+void test2(int a);
 
 
 main4()
 {
-	test07(1);
+	test2(1);
 }
 
 
 
 
-int test06()
+int test1()
 {
 	// 아스키코드에서 0은 30임 ->0x30 이렇게 쓰면 16진수 0을 사용한다는 뜻인데 
 	// num-0x30 하면 이게 뭔데?  문자를 숫자로 바꾸는건가
@@ -34,7 +34,7 @@ int test06()
 	}
 }
 
-void test07(int a)  //문자열과 문자배열
+void test2(int a)  //문자열과 문자배열
 {
 	char ca[] = "Hello"; // ca[0]: 'H' ... ca[5]:\0
 	for (int i = 0; i < 10; i++)  
