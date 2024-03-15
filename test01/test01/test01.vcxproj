@@ -133,6 +133,7 @@
     <ClCompile Include="pointer.c" />
     <ClCompile Include="printf.c" />
     <ClCompile Include="condition.c" />
+    <ClCompile Include="quiz.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

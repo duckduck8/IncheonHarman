@@ -12,10 +12,17 @@ void Dump(char* p, int len);
 void Copy(char* p1, char* p2);
 int Length(char* str);
 int Compare(char* str1, char* str2);
+//fflush(stdin),rewind(stdin): scanf에서 에러났을때 다시 처음으로 돌려보내주는 함수
+//if (n == 0)  //입력오류의미   //이런식으로 사용하면 됨
+//{
+//	fflush(stdin); //버퍼 클리어
+//	rewind(stdin);// 버퍼 포인터 클리어
+//	continue;
+//}
 
 
 
-main()
+main5()
 {
 	int n;
 	void* pF[] = {test01, test02, test03, test04, test05, test06, test07, test08};  //타입이 정해지지 않은 포인터, test1,2,3,4 함수의 주소들이 배열에 담긴것
